@@ -23,7 +23,6 @@
             line-height: 1.6;
         }
 
-        /* Même Header que la page d'accueil */
         header {
             padding: 25px 5%;
             display: flex;
@@ -37,13 +36,7 @@
             z-index: 100;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: white;
-            text-decoration: none;
-        }
-
+        .logo { font-size: 24px; font-weight: 800; color: white; text-decoration: none; }
         .logo span { color: var(--owlo-green); }
 
         nav a {
@@ -56,11 +49,11 @@
 
         nav a:hover { color: var(--owlo-green); }
 
-        /* Section Spécifique Technologie */
         .tech-hero {
             padding: 120px 5% 60px;
             max-width: 1000px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .tech-hero h1 {
@@ -71,29 +64,61 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .tech-content {
+        /* Grille d'applications */
+        .apps-grid {
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px auto 0;
+        }
+
+        .app-card {
+            background: var(--owlo-card);
+            border: 1px solid var(--owlo-border);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .app-card:hover {
+            border-color: var(--owlo-green);
+            background: rgba(117, 185, 176, 0.05);
+        }
+
+        /* Style quand la carte est sélectionnée */
+        .app-card.active {
+            border-color: var(--owlo-green);
+            background: rgba(117, 185, 176, 0.1);
+            box-shadow: 0 0 20px rgba(117, 185, 176, 0.2);
+        }
+
+        .app-card .icon { font-size: 2rem; }
+        .app-card span { color: white; font-weight: 700; font-size: 1.1rem; }
+
+        /* Sections de contenu (Masquées par défaut) */
+        .tech-content {
+            display: none; /* CACHÉ */
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             padding: 40px 5% 100px;
             max-width: 1200px;
             margin: 0 auto;
             align-items: center;
+            animation: fadeIn 0.5s ease;
         }
 
-        .tech-text h2 {
-            color: var(--owlo-green);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .tech-text p {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Simulation d'un graphique technique ou image */
+        .tech-text h2 { color: var(--owlo-green); font-size: 1.8rem; margin-bottom: 20px; }
         .tech-visual {
             background: var(--owlo-card);
             border: 1px solid var(--owlo-border);
@@ -106,44 +131,23 @@
             overflow: hidden;
         }
 
-        .tech-visual::before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: var(--owlo-green);
-            filter: blur(100px);
-            opacity: 0.15;
-        }
-
-        .data-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .data-list { list-style: none; padding: 0; }
         .data-list li {
             padding: 15px 0;
             border-bottom: 1px solid var(--owlo-border);
             display: flex;
             justify-content: space-between;
         }
-
-        .data-list li span {
-            color: var(--owlo-green);
-            font-weight: 600;
-        }
+        .data-list li span { color: var(--owlo-green); font-weight: 600; }
 
         .cta-button {
-            background-color: var(--owlo-green);
-            color: var(--owlo-dark);
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
+            background-color: var(--owlo-green); color: var(--owlo-dark);
+            padding: 16px 32px; border-radius: 12px; font-weight: 700; text-decoration: none;
         }
 
         @media (max-width: 768px) {
             .tech-content { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -152,37 +156,108 @@
     <header>
         <a href="index.html" class="logo">OWLO<span>.</span></a>
         <nav>
+            <a href="index.html">About us</a>
             <a href="O_technologie.html">Technology</a>
-            <a href="O_applications.html">Applications</a>
+            <a href="O_applications.html" style="color: var(--owlo-green);">Applications</a>
             <a href="O_teams.html">Team</a>
+            <a href="O_news.html">News</a>
             <a href="contact.html" class="cta-button" style="padding: 10px 20px; margin-left: 20px;">Contact</a>
         </nav>
     </header>
 
     <main class="tech-hero">
-        <h1>Innovation Holographique & IA</h1>
-        <p>Découvrez comment notre technologie repousse les limites de la microscopie traditionnelle sans compromettre l'intégrité biologique de vos échantillons.</p>
+        <h1>From embryology to oncology</h1>
+        
+        <div class="apps-grid">
+            <div class="app-card" onclick="showApp('ivf', this)">
+                <div class="icon">🔬</div>
+                <span>IVF</span>
+            </div>
+
+            <div class="app-card" onclick="showApp('ophtalmo', this)">
+                <div class="icon">👁️</div>
+                <span>Ophthalmology</span>
+            </div>
+
+            <div class="app-card" onclick="showApp('culture', this)">
+                <div class="icon">🧪</div>
+                <span>Cell culture</span>
+            </div>
+        </div>
     </main>
 
-    <section class="tech-content">
+    <section id="ivf" class="tech-content">
         <div class="tech-visual">
             <div style="text-align: center;">
                 <div style="font-size: 4rem; color: var(--owlo-green);">⚡</div>
-                <p style="color: var(--text-gray);">Visualisation 3D en temps réel</p>
+                <p>Visualisation IVF 3D</p>
             </div>
         </div>
-
         <div class="tech-text">
-            <h2>Précision Nanométrique</h2>
+            <h2>IVF</h2>
             <p>Notre algorithme propriétaire reconstruit les ondes lumineuses pour offrir une profondeur de champ inédite, sans aucun marquage fluorescent (Label-Free).</p>
-            
             <ul class="data-list">
-                <li>Vitesse de capture <span>1.2s</span></li>
-                <li>Résolution axiale <span>< 50nm</span></li>
-                <li>Traitement Cloud <span>Inclus</span></li>
+                <li>Embryo viability <span>1.2s</span></li>
+                <li>Precision <span>< 50nm</span></li>
             </ul>
         </div>
     </section>
+
+    <section id="ophtalmo" class="tech-content">
+        <div class="tech-visual">
+            <div style="text-align: center;">
+                <div style="font-size: 4rem; color: var(--owlo-green);">👁️</div>
+                <p>Analyse rétinienne haute définition</p>
+            </div>
+        </div>
+        <div class="tech-text">
+            <h2>Ophthalmology</h2>
+            <p>Une imagerie non-invasive pour détecter les pathologies rétiniennes précoces avec une résolution cellulaire.</p>
+            <ul class="data-list">
+                <li>Scan speed <span>Ultra-fast</span></li>
+                <li>Non-invasive <span>100%</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="culture" class="tech-content">
+        <div class="tech-visual">
+            <div style="text-align: center;">
+                <div style="font-size: 4rem; color: var(--owlo-green);">🧪</div>
+                <p>Monitoring de culture cellulaire</p>
+            </div>
+        </div>
+        <div class="tech-text">
+            <h2>Cell Culture</h2>
+            <p>Suivi en temps réel de la croissance cellulaire en incubateur sans perturber l'environnement de culture.</p>
+            <ul class="data-list">
+                <li>Automated counting <span>Included</span></li>
+                <li>Time-lapse <span>4K</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function showApp(appId, cardElement) {
+            // 1. Cacher toutes les sections
+            const sections = document.querySelectorAll('.tech-content');
+            sections.forEach(section => section.style.display = 'none');
+
+            // 2. Retirer la classe 'active' de toutes les cartes
+            const cards = document.querySelectorAll('.app-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // 3. Afficher la section demandée (en flex car c'est un grid à la base, mais le grid se réactive par le CSS)
+            const targetSection = document.getElementById(appId);
+            targetSection.style.display = 'grid';
+
+            // 4. Ajouter la classe 'active' à la carte cliquée
+            cardElement.classList.add('active');
+
+            // Optionnel : scroller légèrement vers le contenu
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
 
 </body>
 </html>

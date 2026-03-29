@@ -167,6 +167,35 @@
             color: inherit;
             display: block;
         }
+
+        .hospital-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--owlo-green);
+            margin-bottom: 10px;
+        }
+
+        .edu-icon {
+            /* Taille de l'icône */
+            width: 40px;  /* Ajustez légèrement si besoin, 40px est bien visible */
+            height: 40px;
+            
+            /* Couleur et style */
+            fill: var(--owlo-green);
+            opacity: 0.9;
+            
+            /* CRUCIAL : Empêche le crop */
+            /* Ajoute un padding interne au SVG pour que le dessin ne touche pas les bords */
+            padding: 4px; 
+            /* S'assure que le navigateur calcule la taille AVEC le padding */
+            box-sizing: border-box; 
+            
+            /* Espacement avec le texte en dessous */
+            margin-bottom: 8px;
+            
+            /* Optionnel : force l'icône à ne pas se déformer dans un flex container */
+            flex-shrink: 0; 
+        }
     
     </style>
 </head>
@@ -175,9 +204,11 @@
     <header>
         <a href="index.html" class="logo">OWLO<span>.</span></a>
         <nav>
+            <a href="index.html">About us</a>
             <a href="O_technologie.html">Technology</a>
             <a href="O_applications.html">Applications</a>
             <a href="O_team.html" style="color: var(--owlo-green);">Team</a>
+            <a href="O_news.html">News</a>
             <a href="contact.html" class="cta-button">Contact</a>
         </nav>
     </header>
@@ -332,6 +363,12 @@
                         <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">Alain Decombe<br><small style="font-size: 0.6rem; opacity: 0.7;">Business Angel</small></div>
                     </div>
                 </a>
+
+                <a href="https://www.dechert.com/people/d/alain-decombe.html" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">BPI France<br><small style="font-size: 0.6rem; opacity: 0.7;">Public Institution</small></div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -341,23 +378,74 @@
 
                 <a href="https://daphni.com" target="_blank" class="member-link">
                     <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
-                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">CSF<br><small style="font-size: 0.6rem; opacity: 0.7;">along with Cercle de Chiron (deal club)</small></div>
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">Carlos Simon Fundacion<br><small style="font-size: 0.6rem; opacity: 0.7;">Valencia, Spain</small></div>
+                    </div>
+                </a>
+
+                <a href="https://daphni.com" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">Agoranov<br><small style="font-size: 0.6rem; opacity: 0.7;">Paris, France</small></div>
                     </div>
                 </a>
 
                 <a href="https://ixcore.com" target="_blank" class="member-link">
                     <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
-                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">BPI<br><small style="font-size: 0.6rem; opacity: 0.7;">owned by Hervé Arditty (founder of iXblue)</small></div>
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">BPI France<br><small style="font-size: 0.6rem; opacity: 0.7;">Paris, france</small></div>
                     </div>
                 </a>
 
                 <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
-                    <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">Institut langevin<br><small style="font-size: 0.6rem; opacity: 0.7;">Thibaut Courtheoux</small></div>
+                    <svg class="edu-icon" viewBox="0 0 24 24">
+                        <path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0L5 13.18zm7.04-4.18l-11 6 11 6 10-5.45V18h2v-6.51l-2-.75-10-5.45z"/>
+                    </svg>
+                    <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">Institut Langevin (ESPCI)<br><small style="font-size: 0.6rem; opacity: 0.7;">Paris, France</small></div>
                 </div>
 
                 <a href="https://www.dechert.com/people/d/alain-decombe.html" target="_blank" class="member-link">
                     <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
-                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">IMM<br><small style="font-size: 0.6rem; opacity: 0.7;">Business Angel</small></div>
+                        <svg class="hospital-icon" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+                        </svg>
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">Insitut Mutualiste Montsouris<br><small style="font-size: 0.6rem; opacity: 0.7;">Paris France</small></div>
+                    </div>
+                </a>
+
+                <a href="URL_DU_LIEN" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
+                        <svg class="hospital-icon" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+                        </svg>
+                        
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">
+                            Foch Hospital<br>
+                            <small style="font-size: 0.6rem; opacity: 0.7;">Paris, France</small>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.dechert.com/people/d/alain-decombe.html" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">INRAE<br><small style="font-size: 0.6rem; opacity: 0.7;">Jouy-en-Josas, France</small></div>
+                    </div>
+                </a>
+
+                <a href="https://www.dechert.com/people/d/alain-decombe.html" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px;">
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px; text-align: center;">PC'up<br><small style="font-size: 0.6rem; opacity: 0.7;">Paris, France</small></div>
+                    </div>
+                </a>
+
+                <a href="URL" target="_blank" class="member-link">
+                    <div class="member-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px; text-align: center;">
+                        
+                        <svg class="edu-icon" viewBox="0 0 24 24">
+                            <path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0L5 13.18zm7.04-4.18l-11 6 11 6 10-5.45V18h2v-6.51l-2-.75-10-5.45z"/>
+                        </svg>
+                        
+                        <div style="font-weight: 800; color: white; letter-spacing: 1px;">
+                            ESPCI<br>
+                            <small style="font-size: 0.6rem; opacity: 0.7;">Paris, France</small>
+                        </div>
                     </div>
                 </a>
             </div>
