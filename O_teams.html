@@ -121,6 +121,13 @@
             object-fit: cover; /* Recadre l'image proprement pour remplir le carré */
             border-radius: 20px; /* Garde les bords arrondis du design */
         }
+
+        /* Rend toute la carte cliquable sans changer le style du texte */
+        .member-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
     
     </style>
 </head>
@@ -141,34 +148,41 @@
         <section class="team-category">
             <h2 class="category-title">Founders</h2>
             <div class="grid">
-                <div class="member-card">
-                    <div class="member-photo">
-                        <img src="paul.jpg" alt="Paul Balondrade">
+                <a href="https://www.linkedin.com/in/paul-balondrade-022194b8/" target="_blank" class="member-link">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="paul.jpg" alt="Paul Balondrade">
+                        </div>
+                        <h3>Paul Balondrade</h3>
+                        <p>CEO</p>
                     </div>
-                    <h3>Paul Balondrade</h3>
-                    <p>CEO</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <img src="victor.png" alt="Victor Barolle">
+                </a>
+                <a href="https://www.linkedin.com/in/victor-barolle-7269906b/" target="_blank" class="member-link">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="victor.png" alt="Victor Barolle">
+                        </div>
+                        <h3>Victor Barollle</h3>
+                        <p>CSO</p>
                     </div>
-                    <h3>Victor Barollle</h3>
-                    <p>CSO</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <img src="nicolas.jpg" alt="Nicolas Guigui">
+                </a>
+                <a href="https://www.linkedin.com/in/nicolas-guigui/" target="_blank" class="member-link">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="nicolas.jpg" alt="Nicolas Guigui">
+                        </div>
+                        <h3>Nicolas Guigui</h3>
+                        <p>CTO</p>
                     </div>
-                    <h3>Nicolas Guigui</h3>
-                    <p>CTO</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-photo">
-                        <img src="Alexandre-Aubry.jpg" alt="Alexandre Aubry">
+                <a href="https://scholar.google.com/citations?user=7iQp_xIAAAAJ&hl=f/" target="_blank" class="member-link">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <img src="Alexandre-Aubry.jpg" alt="Alexandre Aubry">
+                        </div>
+                        <h3>Alexandre Aubry</h3>
+                        <p>Scentific advisor</p>
                     </div>
-                    <h3>Alexandre Aubry</h3>
-                    <p>Scentific advisor</p>
-                </div>
+                </a>
             </div>
         </section>
 
